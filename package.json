@@ -1,0 +1,24 @@
+{
+  "name": "covid_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc index.ts --outDir dist",
+    "tscw": "tsc index.ts -w --outDir dist",
+    "dev": "nodemon --inspect ./dist/index.js",
+    "start": "node index.js"
+  },
+  "author": "Yash <jermpro0@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fastify": "^3.21.3",
+    "fastify-cors": "^6.0.2",
+    "mongoose": "^6.0.6",
+    "nodemon": "^2.0.12"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
