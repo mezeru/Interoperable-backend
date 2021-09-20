@@ -46,6 +46,7 @@ export default async (fastify,options) => {
         const patient = new patientDB({
             Name: request.body.Name,
             AdhaarNo : request.body.AdhaarNo,
+            PhoneNo : request.body.PhoneNo,
             PlaceofLiving : request.body.PlaceofLiving,
             Gender : request.body.Gender
         });
@@ -56,7 +57,7 @@ export default async (fastify,options) => {
         }
         catch(e){
             
-            reply.code(400).header('Content-Type', 'application/json; charset=utf-8').send({ "Sad": "Patient Already Present" });
+            reply.code(400).header('Content-Type', 'application/json; charset=utf-8').send({ "Sad": `${e}` });
 
         }        
 

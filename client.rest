@@ -1,0 +1,14 @@
+POST http://localhost:8080/new 
+content-type: application/json
+
+{
+"Name":"A3432BC",
+"AdhaarNo":231234324124234,
+"Gender":"M",
+"PhoneNo":98764234543210,
+"PlaceofLiving":"Here"
+}
+
+#####
+
+GET http://localhost:8080/patient/search?AdhaarNo=231234324124234
