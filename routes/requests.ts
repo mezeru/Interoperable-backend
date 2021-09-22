@@ -2,53 +2,54 @@ import patientDB from "../schema/demographics";
 
 export default async (fastify,options) => {
 
-    fastify.get('/patient/search', async (request,reply) => {
+    // fastify.get('/patient/search', async (request,reply) => {
 
-        try{
+    //     try{
 
-            const resp = await patientDB.findOne(request.query);
+    //         const resp = await patientDB.findOne(request.query);
             
-            if(resp){
-                reply.code(200).send(resp);
-            }
+    //         if(resp){
+    //             reply.code(200).send(resp);
+    //         }
 
-            reply.code(204).send("Not Found");
+    //         reply.code(204).send("Not Found");
 
-        }
-        catch(e){
-            reply.code(500).send(e);
-        }
+    //     }
+    //     catch(e){
+    //         reply.code(500).send(e);
+    //     }
 
-    });
+    // });
 
-    fastify.delete('/patient/remove', async (request,reply) => {
+    // fastify.delete('/patient/remove', async (request,reply) => {
 
-        try{
-            console.log(request.query)
-            const resp = await patientDB.deleteOne(request.query);
+    //     try{
+    //         console.log(request.query)
+    //         const resp = await patientDB.deleteOne(request.query);
             
-            if(resp){
-                reply.code(200).send("OK");
-            }
+    //         if(resp){
+    //             reply.code(200).send("OK");
+    //         }
 
-            reply.code(204).send("Not Found");
+    //         reply.code(204).send("Not Found");
 
-        }
-        catch(e){
-            reply.code(500).send(e);
-        }
+    //     }
+    //     catch(e){
+    //         reply.code(500).send(e);
+    //     }
 
-    });
+    // });
     
 
-    fastify.post('/new', async (request,reply) =>{
+    fastify.post('/new', async (request,reply) => {
 
         const patient = new patientDB({
             Name: request.body.Name,
             AdhaarNo : request.body.AdhaarNo,
             PhoneNo : request.body.PhoneNo,
             PlaceofLiving : request.body.PlaceofLiving,
-            Gender : request.body.Gender
+            Gender : request.body.Gender,
+            ehrId : request.body.ehrId
         });
 
         try{

@@ -27,6 +27,12 @@ const demo = new mongoose.Schema({
         required:true
     },
 
+
+    ehrId:{
+        type: String,
+        unique:true
+    }
+
 });
 
 export default mongoose.model('Patients',demo);
