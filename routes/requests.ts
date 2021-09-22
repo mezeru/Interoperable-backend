@@ -21,24 +21,24 @@ export default async (fastify,options) => {
 
     // });
 
-    // fastify.delete('/patient/remove', async (request,reply) => {
+    fastify.delete('/patient/remove', async (request,reply) => {
 
-    //     try{
-    //         console.log(request.query)
-    //         const resp = await patientDB.deleteOne(request.query);
+        try{
+            console.log(request.query)
+            const resp = await patientDB.deleteOne(request.query);
             
-    //         if(resp){
-    //             reply.code(200).send("OK");
-    //         }
+            if(resp){
+                reply.code(200).send("OK");
+            }
 
-    //         reply.code(204).send("Not Found");
+            reply.code(204).send("Not Found");
 
-    //     }
-    //     catch(e){
-    //         reply.code(500).send(e);
-    //     }
+        }
+        catch(e){
+            reply.code(500).send(e);
+        }
 
-    // });
+    });
     
 
     fastify.post('/new', async (request,reply) => {
