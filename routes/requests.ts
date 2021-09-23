@@ -21,7 +21,7 @@ export default async (fastify,options) => {
 
     // });
 
-    fastify.delete('/patient/remove', async (request,reply) => {
+    fastify.delete('/delete', async (request,reply) => {
 
         try{
             console.log(request.query)
@@ -31,7 +31,7 @@ export default async (fastify,options) => {
                 reply.code(200).send("OK");
             }
 
-            reply.code(204).send("Not Found");
+            reply.code(404).send("Not Found");
 
         }
         catch(e){
