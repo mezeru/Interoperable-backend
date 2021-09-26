@@ -2,24 +2,24 @@ import patientDB from "../schema/demographics";
 
 export default async (fastify,options) => {
 
-    // fastify.get('/patient/search', async (request,reply) => {
+    fastify.get('/search', async (request,reply) => {
 
-    //     try{
+        try{
 
-    //         const resp = await patientDB.findOne(request.query);
+            const resp = await patientDB.findOne(request.query);
             
-    //         if(resp){
-    //             reply.code(200).send(resp);
-    //         }
+            if(resp){
+                reply.code(200).send(resp);
+            }
 
-    //         reply.code(204).send("Not Found");
+            reply.code(404).send("Not Found");
 
-    //     }
-    //     catch(e){
-    //         reply.code(500).send(e);
-    //     }
+        }
+        catch(e){
+            reply.code(500).send(e);
+        }
 
-    // });
+    });
 
     fastify.delete('/delete', async (request,reply) => {
 
