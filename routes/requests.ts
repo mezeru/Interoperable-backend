@@ -21,6 +21,25 @@ export default async (fastify,options) => {
 
     });
 
+    fastify.get('/all', async (request,reply) => {
+
+        try{
+
+            const resp = await patientDB.find({},{_id:0,AdhaarNo:1,Name:1,PhoneNo:1});
+            
+            if(resp){
+                reply.code(200).send(resp);
+            }
+
+            reply.code(404).send("Not Found");
+
+        }
+        catch(e){
+            reply.code(500).send(e);
+        }
+
+    });
+
     fastify.delete('/delete', async (request,reply) => {
 
         try{
