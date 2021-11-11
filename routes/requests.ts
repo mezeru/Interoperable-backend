@@ -25,7 +25,7 @@ export default async (fastify,options) => {
 
         try{
 
-            const resp = await patientDB.find({},{_id:0,AdhaarNo:1,Name:1,PhoneNo:1});
+            const resp = await patientDB.find({}).sort({_id:-1});
             
             if(resp){
                 reply.code(200).send(resp);
