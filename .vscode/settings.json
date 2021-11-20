@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/30aa955c-8e82-450b-bd1f-0b035c44f122/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/covid-backend-mongo",
+    "appService.deploySubpath": "."
+}
