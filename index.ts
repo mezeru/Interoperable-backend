@@ -10,7 +10,11 @@ fastify.register(require('fastify-cors'),{
 dbConnect();
 
 fastify.register(routes, {prefix:'/'} );
-
-fastify.listen(process.env.PORT,(err,address) => {
-   null
-})
+const port = process.env.PORT || 5000
+fastify.listen(port, '0.0.0.0', async function (error, address) {
+    if (error) {
+      fastify.log.error(error)
+      process.exit(1)
+    }
+    fastify.log.info(`server listening on ${address}`)
+  })
