@@ -62,6 +62,10 @@ export default async (fastify,options) => {
     fastify.get("/status", (request,reply) =>{
         reply.code(200).send("Server is Up");
     })
+
+    fastify.get("/", (request,reply) =>{
+        reply.code(200).send("Server is Up");
+    })
     
 
     fastify.post('/new', async (request,reply) => {
